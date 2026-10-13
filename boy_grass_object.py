@@ -88,8 +88,12 @@ def reset_world():
     zombies = [Zombie() for i in range(5)]
     world += zombies
 
-    ball = [Ball() for i in range(20)]
-    world += (ball)
+    balls = [Ball() for i in range(20)]
+    
+    balls[0].type = 0
+    balls[1].type = 1 # 최소 한 크기는 보장
+        
+    world += (balls)
 
 
 def update_world():
