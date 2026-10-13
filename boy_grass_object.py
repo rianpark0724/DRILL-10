@@ -50,6 +50,8 @@ class Ball:
 
     def update(self):
         self.y -= self.speed
+        if self.y <= 60:
+            self.speed = 0
 
 def handle_events():
     global running
