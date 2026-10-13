@@ -41,8 +41,8 @@ class Zombie:
 
 class Ball:
     def __init__(self):
-        self.type = random.randint(0,1)
-        
+        self.type = random.randint(0,1) # 0 == 대형, 1 == 소형
+
         if(self.type): self.image = load_image("ball21x21.png")
         else: self.image = load_image("ball41x41.png")
 
@@ -62,22 +62,6 @@ class Ball:
         elif not self.type and self.y <= 70:
             self.y = 70
             self.speed = 0
-
-# class BigBall:
-#     def __init__(self):
-#         self.image = load_image("ball41x41.png")
-#         self.x, self.y = random.randint(0, 800), 599
-#         self.speed = random.randint(30, 50)
-
-#     def draw(self):
-#         self.image.draw(self.x,self.y)
-
-#     def update(self):
-#         self.y -= self.speed
-#         if self.y <= 70:
-#             self.y = 70
-#             self.speed = 0
-#         pass
 
 def handle_events():
     global running
@@ -104,11 +88,8 @@ def reset_world():
     zombies = [Zombie() for i in range(5)]
     world += zombies
 
-    ball = [Ball() for i in range(10)]
+    ball = [Ball() for i in range(20)]
     world += (ball)
-
-    # bigBall = [BigBall() for i in range(10)]
-    # world += (bigBall)
 
 
 def update_world():
