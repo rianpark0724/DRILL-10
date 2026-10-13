@@ -95,11 +95,11 @@ def reset_world():
     zombies = [Zombie() for i in range(5)]
     world += zombies
 
-    smallBall = SmallBall()
-    world.append(smallBall)
+    smallBall = [SmallBall() for i in range(10)]
+    world += (smallBall)
 
-    bigBall = BigBall()
-    world.append(bigBall)
+    bigBall = [BigBall() for i in range(10)]
+    world += (bigBall)
     
 
 
