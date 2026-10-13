@@ -58,16 +58,16 @@ class BigBall:
     def __init__(self):
         self.image = load_image("ball41x41.png")
         self.x, self.y = random.randint(0, 800), 599
-        self.speed = random.randint(10, 40)
+        self.speed = random.randint(30, 50)
 
     def draw(self):
         self.image.draw(self.x,self.y)
 
     def update(self):
-        # self.y -= self.speed
-        # if self.y <= 60:
-        #     self.y = 60
-        #     self.speed = 0
+        self.y -= self.speed
+        if self.y <= 70:
+            self.y = 70
+            self.speed = 0
         pass
 
 def handle_events():
