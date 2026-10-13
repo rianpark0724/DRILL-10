@@ -43,12 +43,13 @@ class Ball:
     def __init__(self):
         self.image = load_image("ball21x21.png")
         self.x, self.y = random.randint(0, 800), 599
+        self.speed = random.randint(10, 40)
 
     def draw(self):
         self.image.draw(self.x,self.y)
 
     def update(self):
-        self.y -= 5
+        self.y -= self.speed
 
 def handle_events():
     global running
