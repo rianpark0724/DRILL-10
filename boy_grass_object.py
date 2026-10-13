@@ -39,9 +39,13 @@ class Zombie:
         self.frame = (self.frame + 1) % 8
         self.x += random.randint(1, 5)
 
-class SmallBall:
+class Ball:
     def __init__(self):
-        self.image = load_image("ball21x21.png")
+        type = random.randint(0,1)
+        if(type):
+            self.image = load_image("ball21x21.png")
+        else:
+            self.image = load_image("ball41x41.png")
         self.x, self.y = random.randint(0, 800), 599
         self.speed = random.randint(10, 40)
 
@@ -54,21 +58,21 @@ class SmallBall:
             self.y = 60
             self.speed = 0
 
-class BigBall:
-    def __init__(self):
-        self.image = load_image("ball41x41.png")
-        self.x, self.y = random.randint(0, 800), 599
-        self.speed = random.randint(30, 50)
+# class BigBall:
+#     def __init__(self):
+#         self.image = load_image("ball41x41.png")
+#         self.x, self.y = random.randint(0, 800), 599
+#         self.speed = random.randint(30, 50)
 
-    def draw(self):
-        self.image.draw(self.x,self.y)
+#     def draw(self):
+#         self.image.draw(self.x,self.y)
 
-    def update(self):
-        self.y -= self.speed
-        if self.y <= 70:
-            self.y = 70
-            self.speed = 0
-        pass
+#     def update(self):
+#         self.y -= self.speed
+#         if self.y <= 70:
+#             self.y = 70
+#             self.speed = 0
+#         pass
 
 def handle_events():
     global running
@@ -95,12 +99,11 @@ def reset_world():
     zombies = [Zombie() for i in range(5)]
     world += zombies
 
-    smallBall = [SmallBall() for i in range(10)]
-    world += (smallBall)
+    ball = [Ball() for i in range(10)]
+    world += (ball)
 
-    bigBall = [BigBall() for i in range(10)]
-    world += (bigBall)
-    
+    # bigBall = [BigBall() for i in range(10)]
+    # world += (bigBall)
 
 
 def update_world():
