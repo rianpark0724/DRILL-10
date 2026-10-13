@@ -41,21 +41,26 @@ class Zombie:
 
 class Ball:
     def __init__(self):
-        type = random.randint(0,1)
-        if(type):
-            self.image = load_image("ball21x21.png")
-        else:
-            self.image = load_image("ball41x41.png")
+        self.type = random.randint(0,1)
+        
+        if(self.type): self.image = load_image("ball21x21.png")
+        else: self.image = load_image("ball41x41.png")
+
         self.x, self.y = random.randint(0, 800), 599
-        self.speed = random.randint(10, 40)
+
+        if(self.type): self.speed = random.randint(10, 40)
+        else: self.speed = random.randint(30, 50)
 
     def draw(self):
         self.image.draw(self.x,self.y)
 
     def update(self):
         self.y -= self.speed
-        if self.y <= 60:
+        if self.type and self.y <= 60:
             self.y = 60
+            self.speed = 0
+        elif not self.type and self.y <= 70:
+            self.y = 70
             self.speed = 0
 
 # class BigBall:
